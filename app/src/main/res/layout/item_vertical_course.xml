@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/verticalContainer"
+    android:layout_width="350dp"
+    android:layout_height="105dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginVertical="20dp"
+    android:background="@drawable/shape_vertical"
+    android:orientation="horizontal"
+    android:padding="20dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/courseImage"
+        android:layout_width="59dp"
+        android:layout_height="57dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_default_person" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/courseTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="placeholder for title"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/courseBookingTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="placeholder for booking time" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/courseProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="placeholder for progress" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:paddingStart="20dp"
+        android:paddingVertical="20dp"
+        android:src="@drawable/ic_play" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
