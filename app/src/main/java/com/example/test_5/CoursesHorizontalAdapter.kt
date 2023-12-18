@@ -1,12 +1,12 @@
 package com.example.test_5
 
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.test_5.databinding.ItemHorizontalCourseBinding
 
 class CoursesHorizontalAdapter : ListAdapter<Course, CoursesHorizontalAdapter.ViewHolder>(CourseDiffCallback()) {
@@ -34,18 +34,23 @@ class CoursesHorizontalAdapter : ListAdapter<Course, CoursesHorizontalAdapter.Vi
                 "card" -> binding.courseIcon.setImageResource(R.drawable.ic_card)
             }
             val mainColor = Color.parseColor("#${course.main_color}")
-            binding.horizontalContainer.setBackgroundColor(mainColor)
+            val shapeDrawable = GradientDrawable().apply {
+                shape = GradientDrawable.RECTANGLE
+                cornerRadius = 50f
+                setColor(mainColor)
+            }
+            binding.horizontalContainer.background = shapeDrawable
             binding.coursePlay.setBackgroundColor(mainColor)
+
         }
     }
-}
+    class CourseDiffCallback : DiffUtil.ItemCallback<Course>() {
+        override fun areItemsTheSame(oldItem: Course, newItem: Course): Boolean {
+            return oldItem.id == newItem.id
+        }
 
-class CourseDiffCallback : DiffUtil.ItemCallback<Course>() {
-    override fun areItemsTheSame(oldItem: Course, newItem: Course): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: Course, newItem: Course): Boolean {
-        return oldItem == newItem
+        override fun areContentsTheSame(oldItem: Course, newItem: Course): Boolean {
+            return oldItem == newItem
+        }
     }
 }

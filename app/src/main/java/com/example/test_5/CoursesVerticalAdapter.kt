@@ -1,6 +1,7 @@
 package com.example.test_5
 
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -34,8 +35,12 @@ class CoursesVerticalAdapter :
                 .load(course.image)
                 .into(binding.courseImage)
             val mainColor = Color.parseColor("#${course.main_color}")
-
-            binding.verticalContainer.setBackgroundColor(mainColor)
+            val shapeDrawable = GradientDrawable().apply {
+                shape = GradientDrawable.RECTANGLE
+                cornerRadius = 50f
+                setColor(mainColor)
+            }
+            binding.verticalContainer.background = shapeDrawable
         }
     }
 
